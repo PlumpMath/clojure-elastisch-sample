@@ -1,8 +1,8 @@
 (ns clojure-elastisch-sample.web
-  (:use [compojure.core :only [defroutes GET]])
+  (:use [compojure.core :only [defroutes GET]]
+        [ring.adapter.jetty :only [run-jetty]])
   (:require [compojure.route :as route]
             [compojure.handler :as handler]
-            [ring.adapter.jetty :as ring]
             [clojure-elastisch-sample.controllers.search]
             [clojure-elastisch-sample.controllers.indexer]
             [clojure-elastisch-sample.views.layout :as layout]
@@ -20,7 +20,7 @@
 (def application (handler/site routes))
 
 (defn start [port]
-  (ring/run-jetty #'application {:port port :join? false}))
+  (run-jetty #'application {:port port :join? false}))
 
 
 (defn -main [& args]
