@@ -1,4 +1,4 @@
-(ns clojure-elastisch-sample.core
+(ns clojure-elastisch-sample.web
   (:use [compojure.core :only [defroutes GET]])
   (:require [compojure.route :as route]
             [compojure.handler :as handler]
