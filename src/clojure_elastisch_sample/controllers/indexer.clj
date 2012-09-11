@@ -7,23 +7,19 @@
 
 (defn index []
   ;; connect to SearchBox ElasticSearch
-  (esr/connect! (System/getenv "SEARCHBOX_URL"))
+  (esr/connect! (or (System/getenv "SEARCHBOX_URL") "http://api.searchbox.io/api-key/your-api-key"))
 
-  ;; delete the index if exists
-  (if (esi/exists? "tweets")
-    (esi/delete "tweets")
+  (if-not (esi/exists? "tweets")
+    ;; create an index with all defaults if it is not exists
+    (esi/create "tweets")
+
+    ;; create 2 new tweets under sample index
+    (esd/create "tweets" "tweet" {:username "Tweety" :text "Tweety Bird (also known as Tweety Pie or simply Tweety) is a fictional Yellow Canary in the Warner Bros."})
+    (esd/create "tweets" "tweet" {:username "Tom" :text "Thomas Tom Cat is a fictional character and the main protagonist in Metro-Goldwyn-Mayer's series of Tom and Jerry theatrical cartoon short films."})
     )
-
-  ;; create an index with all defaults if it is not exists
-  (esi/create "tweets")
-
-  ;; create 2 new tweets under sample index
-  (esd/create "tweets" "tweet" {:username "Tweety" :text "Tweety Bird (also known as Tweety Pie or simply Tweety) is a fictional Yellow Canary in the Warner Bros."})
-  (esd/create "tweets" "tweet" {:username "Tom" :text "Thomas Tom Cat is a fictional character and the main protagonist in Metro-Goldwyn-Mayer's series of Tom and Jerry theatrical cartoon short films."})
 
   ;; go to home
   (view/index)
-
   )
 
 (defroutes routes
