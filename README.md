@@ -14,9 +14,9 @@ Type '*' or 'tweety' or 'tom' to searchbox at top of right corner and hit enter 
 To run example in your local environment with a local ElasticSearch instance, change connection string with local url string inside
 controllers/search.clj and controllers/indexer.clj to
 
-'''
+```
     (esr/connect! http://localhost:9200)
-'''
+```
 
 ## Heroku Deployment
 
