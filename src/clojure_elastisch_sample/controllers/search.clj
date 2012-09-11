@@ -7,7 +7,7 @@
 
 (defn search [qparam]
   ;; connect to SearchBox ElasticSearch
-  (esr/connect! (or (System/getenv "SEARCHBOX_URL") "http://api.searchbox.io/api-key/your-api-key"))
+  (esr/connect! (System/getenv "SEARCHBOX_URL"))
 
   (let [res (esd/search "tweets" "tweet" :query {:query_string {:query qparam}})
         hits (esrsp/hits-from res)]

@@ -7,7 +7,7 @@
 
 (defn index []
   ;; connect to SearchBox ElasticSearch
-  (esr/connect! (or (System/getenv "SEARCHBOX_URL") "http://api.searchbox.io/api-key/your-api-key"))
+  (esr/connect! (System/getenv "SEARCHBOX_URL"))
 
   ;; delete the index if exists
   (if (esi/exists? "tweets")
