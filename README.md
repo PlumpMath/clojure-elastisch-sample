@@ -18,6 +18,12 @@ controllers/search.clj and controllers/indexer.clj to
     (esr/connect! "http://localhost:9200")
 ```
 
+Ensure Leiningen 2 is installed and run with below command;
+
+```
+    lein run clojure-elastisch-sample.web
+```
+
 ## Heroku Deployment
 
 This sample can be deployed to Heroku with no change.
