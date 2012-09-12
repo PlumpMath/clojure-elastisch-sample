@@ -15,7 +15,7 @@ To run example in your local environment with a local ElasticSearch instance, ch
 controllers/search.clj and controllers/indexer.clj to
 
 ```
-    (esr/connect! http://localhost:9200)
+    (esr/connect! "http://localhost:9200")
 ```
 
 ## Heroku Deployment
