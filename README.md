@@ -21,7 +21,7 @@ controllers/search.clj and controllers/indexer.clj to
 Ensure Leiningen 2 is installed and run with below command;
 
 ```
-    lein run clojure-elastisch-sample.web
+    lein run -m clojure-elastisch-sample.web
 ```
 
 ## Heroku Deployment
