@@ -2,7 +2,7 @@
 
 This example illustrates basic search features of SearchBox.io ([ElasticSearch](http://www.elasticsearch.org) as service).
 
-Sample application is using [Elastisch](http://http//clojureelasticsearch.info/) Clojure ElasticSearch client to integrate with SearchBox.io.
+Sample application is using [Elastisch](http://clojureelasticsearch.info/) Clojure ElasticSearch client to integrate with SearchBox.io.
 
 To create initial index and sample data click Create Sample Index&Data! (2 sample documents will be created.)
 
